@@ -16,7 +16,7 @@
 	  return answer;
       }
       window.onload = function() {
-	      document.getElementById("fulltext").innerText=window.location
+	    //  document.getElementById("fulltext").innerText=window.location
 	  url_params = window.location.search.substr(1)
 	  if (url_params !== null ) {
 	      params = mapify(url_params);
@@ -24,7 +24,7 @@
 	      if (params["shortcut"] != null) {
 		  var callback_url = "shortcuts://x-callback-url/run-shortcut?name="+params["shortcut"]+"&input=text&text="+params["code"];
 		  alert("Invoking callback url-" + callback_url);
-		//  window.location.href = callback_url
+		 window.location.href = callback_url
 	      } else {
 		  alert("nothing to do. no shortcut name found");
 	      }
