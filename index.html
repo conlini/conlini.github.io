@@ -16,6 +16,7 @@
 	  return answer;
       }
       window.onload = function() {
+	      document.getElementById("fulltext").innerText=window.location
 	  url_params = window.location.search.substr(1)
 	  if (url_params !== null ) {
 	      params = mapify(url_params);
@@ -38,5 +39,6 @@
   </head> 
   <body>
     <title>Conlini Shortctus</title>
+	  <p id="fulltext"></p>
   </body>
 </html>
