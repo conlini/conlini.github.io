@@ -1,8 +1,36 @@
 <html>
   <head>
-    window.onload = function() {
-      alert("Hello - " + window.location.search.substr(1))
-    }
+    <script>
+
+      function mapify(url_params) {
+	  var answer = new Object();
+	  splitz = url_params.split("&");
+//	  alert(splitz);
+	  if (splitz.length > 0) {
+	      splitz.forEach(function(item){
+//		  alert(item)
+		  key_val = item.split("=");
+		  answer[key_val[0]] = key_val[1];
+	      });
+	  }
+	  return answer;
+      }
+      window.onload = function() {
+	  url_params = window.location.search.substr(1)
+	  if (url_params !== null ) {
+	      params = mapify(url_params);
+	      if (params["shortcut"] != null) {
+		  var callback_url = "shortcuts://x-callback-url/run-shortcut?name="+params["shortcut"]+"input=text&text="+params["code"];
+		  alert("Invoking callback url-" + callback_url);
+		  window.location.href = callback_url
+	      } else {
+		  alert("nothing to do. no shortcut name found");
+	      }
+	  } else {
+	      alert("No params. Done")
+	  }
+	}
+    </script>
   </head> 
   <body>
     <title>Conlini Shortctus</title>
