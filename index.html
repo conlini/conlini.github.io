@@ -24,7 +24,7 @@
 	      if (params["shortcut"] != null) {
 		  var callback_url = "shortcuts://x-callback-url/run-shortcut?name="+params["shortcut"]+"&input=text&text="+params["code"];
 		  alert("Invoking callback url-" + callback_url);
-		  window.location.href = callback_url
+		//  window.location.href = callback_url
 	      } else {
 		  alert("nothing to do. no shortcut name found");
 	      }
